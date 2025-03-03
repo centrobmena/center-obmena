@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Обмен валюты в Турции. Выгодный обмен валют в офисах по городам Стамбул, Анталья, Алания, Мерсин. Обмен USDT и рублей на наличные доллары, евро или лиры.">
+    <title>ЦентрОбмена</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__logo">
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="header__logo-link">
+                    <img src="./assets/images/logo.webp" alt="logo" class="header__logo-img">
+                </a>
+            </div>
+        
+            <h1 class="header__title">Выгодный обмен валют в Турции</h1>
+        
+            <div class="header__description">
+                <p> <span class="header__description-bold">Обменивайте USDT</span> и рубли на доллары, лиры или евро и наоборот.</p>
+                <p>Получайте кэш <span class="header__description-bold">в наших офисах за 3 минуты.</span></p>
+            </div>
+    
+            <div class="header__exchange">
+                <div class="header__exchange-block">
+                    <label class="header__exchange-label">Выберите город:</label>
+                    <div class="custom-select city-select">
+                        <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/>
+                        </svg>
+                        <div class="custom-select__selected" data-value="Анталья">
+                            <span class="custom-select__text">Анталья</span>
+                        </div>
+                        <div class="custom-select__options" id="city-select-options">
+                            <div class="custom-select__option" data-value="Анталья" onclick="selectOption('Анталья', 'city')">
+                                <span class="custom-select__text">Анталья</span>
+                            </div>
+                            <div class="custom-select__option" data-value="Аланья" onclick="selectOption('Аланья', 'city')">
+                                <span class="custom-select__text">Аланья</span>
+                            </div>
+                            <div class="custom-select__option" data-value="Стамбул" onclick="selectOption('Стамбул', 'city')">
+                                <span class="custom-select__text">Анталья</span>
+                            </div>
+                            <div class="custom-select__option" data-value="Мерсин" onclick="selectOption('Мерсин', 'city')">
+                                <span class="custom-select__text">Мерсин</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="header__exchange-block">
+                    <label class="header__exchange-label">Выберите валюту:</label>
+                    <div class="custom-select currency-select">
+                        <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/>
+                        </svg>
+                        <div class="custom-select__selected">
+                            <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" alt="usdt-icon">
+                            <span class="custom-select__text">Tether USDT</span>
+                        </div>
+                        <div class="custom-select__options" id="custom-select-options">
+                            <div class="custom-select__option" data-value="usdt" onclick="selectOption('usdt', 'currency')">
+                                <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" alt="usdt-icon">
+                                <span class="custom-select__text">Tether USDT</span>
+                            </div>
+                            <div class="custom-select__option" data-value="rub" onclick="selectOption('rub', 'currency')">
+                                <img src="./assets/images/rub-icon.svg" class="custom-select__icon" alt="rub-icon">
+                                <span class="custom-select__text">RUB с карты</span>
+                            </div>
+                            <div class="custom-select__option" data-value="uah" onclick="selectOption('uah', 'currency')">
+                                <img src="./assets/images/uah-icon.svg" class="custom-select__icon" alt="uah-icon">
+                                <span class="custom-select__text">UAH с карты</span>
+                            </div>
+                            <div class="custom-select__option" data-value="usd" onclick="selectOption('usd', 'currency')">
+                                <img src="./assets/images/usd-icon.svg" class="custom-select__icon" alt="usd-icon">
+                                <span class="custom-select__text">USD наличные</span>
+                            </div>
+                            <div class="custom-select__option" data-value="eur" onclick="selectOption('eur', 'currency')">
+                                <img src="./assets/images/eur-icon.svg" class="custom-select__icon" alt="eur-icon">
+                                <span class="custom-select__text">EUR наличные</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="header__exchange-block">
+                    <label class="header__exchange-label">Отдаете:</label>
+                    <input type="text" id="amount" class="header__exchange-input" placeholder="Введите сумму" 
+                        inputmode="decimal" pattern="[0-9]*[.]?[0-9]*" 
+                        onkeypress="return validateInput(event)" 
+                        oninput="updateReceivedAmount()">
+                </div>
+            
+                <div class="header__exchange-block">
+                    <label class="header__exchange-label">Получаете:</label>
+                    <div class="header__exchange-line">
+                        <p id="received-amount" class="header__exchange-received-amount"></p>
+                        <div class="custom-select receive-select">
+                            <div class="custom-select__selected" id="receive-selected">
+                                <div class="currency-preview">
+                                    <img src="./assets/images/try-icon.svg" class="custom-select__icon" alt="try-icon">
+                                    <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="custom-select__options" id="receive-select-options"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="header__link">
+                <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="#fff"/></svg>
+    
+                Обменять сейчас
+            </a>
+    
+        </header>
+    
+        <main class="main">
+            <section class="last-exchange">
+                <div class="last-exchange__container">
+                    <h3 class="last-exchange__title">Последние обмены:</h3>
+                    <div class="last-exchange__list">
+   
+
+                        <div class="last-exchange__item">
+                            
+                                <p class="last-exchange__date">03.03.2025</p>
+                                <div class="last-exchange__item-svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                                <p class="last-exchange__rate"> → </p>
+                            </div>
+
+                            <div class="last-exchange__course-container">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+                            <p class="last-exchange__course">1 USDT = 0.998 USD</p>
+                        </div>
+                        </div>
+
+                        <div class="last-exchange__item">
+                            
+                            <p class="last-exchange__date">03.03.2025</p>
+                            <div class="last-exchange__item-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                            <p class="last-exchange__rate">120,000 RUB  → 45,285 TRY</p>
+                        </div>
+
+                        <div class="last-exchange__course-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+                        <p class="last-exchange__course">1 RUB = 2.65 TRY</p>
+                    </div>
+                    </div>
+
+
+                    <div class="last-exchange__item">
+                            
+                        <p class="last-exchange__date">03.03.2025</p>
+                        <div class="last-exchange__item-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                        <p class="last-exchange__rate">8,200 USDT → 287,840 TRY</p>
+                    </div>
+
+                    <div class="last-exchange__course-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+                    <p class="last-exchange__course">1 USDT = 35.98 TRY</p>
+                </div>
+                </div>
+
+
+                <div class="last-exchange__item">
+                            
+                    <p class="last-exchange__date">03.03.2025</p>
+                    <div class="last-exchange__item-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                    <p class="last-exchange__rate">10,000 USDT → 9,561 EUR</p>
+                </div>
+
+                <div class="last-exchange__course-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+                <p class="last-exchange__course">1 USDT = 0.9561 EUR
+                </p>
+            </div>
+            </div>
+
+                        <div class="last-exchange__item last-exchange__item--hidden">
+                            <p class="last-exchange__date">03.03.2025</p>
+                            <div class="last-exchange__item-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                            <p class="last-exchange__rate">5,500 USDT → 54,89 USD</p>
+                        </div>
+        
+                        <div class="last-exchange__course-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+                        <p class="last-exchange__course">1 USDT = 0.998 USD</p>
+                    </div>
+                    </div>
+
+                    <div class="last-exchange__item last-exchange__item--hidden">
+                        <p class="last-exchange__date">03.03.2025</p>
+                        <div class="last-exchange__item-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                        <p class="last-exchange__rate">82,000 RUB  → 30,943 TRY</p>
+                    </div>
+    
+                    <div class="last-exchange__course-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+                    <p class="last-exchange__course">1 RUB = 2.65 TRY</p>
+                </div>
+                </div>
+
+                <div class="last-exchange__item last-exchange__item--hidden">
+                    <p class="last-exchange__date">03.03.2025</p>
+                    <div class="last-exchange__item-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                    <p class="last-exchange__rate">800 USDT → 28,780 TRY</p>
+                </div>
+
+                <div class="last-exchange__course-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+                <p class="last-exchange__course">1 USDT = 35.98 TRY</p>
+            </div>
+            </div>
+
+            <div class="last-exchange__item last-exchange__item--hidden">
+                <p class="last-exchange__date">03.03.2025</p>
+                <div class="last-exchange__item-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+                <p class="last-exchange__rate">21,450 USDT → 20,508 EUR</p>
+            </div>
+
+            <div class="last-exchange__course-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon"><path fill-rule="evenodd" d="M13.2 2.24a.75.75 0 0 0 .04 1.06l2.1 1.95H6.75a.75.75 0 0 0 0 1.5h8.59l-2.1 1.95a.75.75 0 1 0 1.02 1.1l3.5-3.25a.75.75 0 0 0 0-1.1l-3.5-3.25a.75.75 0 0 0-1.06.04Zm-6.4 8a.75.75 0 0 0-1.06-.04l-3.5 3.25a.75.75 0 0 0 0 1.1l3.5 3.25a.75.75 0 1 0 1.02-1.1l-2.1-1.95h8.59a.75.75 0 0 0 0-1.5H4.66l2.1-1.95a.75.75 0 0 0 .04-1.06Z" clip-rule="evenodd"/></svg>
+            <p class="last-exchange__course">1 USDT = 0.9561 EUR</p>
+        </div>
+        </div>
+
+                        
+                        <button class="last-exchange__toggle">
+                            <svg class="last-exchange__toggle-icon" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+
+            </section>
+    
+            <section class="work-process">
+                <h2 class="work-process__title">Как мы работаем?</h2>
+                <p class="work-process__description">Презентация за 1 минуту</p>
+    
+                <iframe class="work-process__video" width="980" height="551" src="https://www.youtube.com/embed/VTP4sp6oy7Q?si=PT8OKigtHbg38_sz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="work-process__link">
+                    <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" class="work-process__icon">
+                        <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/>
+                    </svg>
+                    Смотреть адреса офисов
+                </a>
+            </section>
+    
+            <section class="currency-rates">
+                <h2 class="currency-rates__title">
+                    Актуальные курсы валют 
+                    <span class="currency-rates__subtitle">в наших офисах на сегодня</span>
+                </h2>
+
+                <div class="currency-rates__buttons">
+                    <div class="currency-rates__buttons-row">
+                        <button class="currency-rates__button" data-city="istanbul">Оптовые курсы</button>
+                        <button class="currency-rates__button currency-rates__button--active" data-city="alanya">Розничные курсы</button>
+                    </div>
+<!--                    <div class="currency-rates__buttons-row">-->
+<!--                        <button class="currency-rates__button" data-city="antalya">Анталья</button>-->
+<!--                        <button class="currency-rates__button" data-city="mersin">Мерсин</button>-->
+<!--                    </div>-->
+                </div>
+            
+                <div class="currency-rates__images">
+                    <div class="currency-rates__image-group">
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usdt-usd.png" alt="usdt-usd" class="currency-rates__image">
+                            <p class="currency-rates__text">-0.3%</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/rub-try.png" alt="rub-try" class="currency-rates__image">
+                            <p class="currency-rates__text">2.97</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usd-usdt.png" alt="usd-usdt" class="currency-rates__image">
+                            <p class="currency-rates__text">-0.3%</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usdt-try.png" alt="usdt-try" class="currency-rates__image">
+                            <p class="currency-rates__text">36.44</p>
+                        </div>
+                    </div>
+            
+                    <div class="currency-rates__image-group">
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usdt-eur.png" alt="usdt-eur" class="currency-rates__image">
+                            <p class="currency-rates__text">1.0287</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/rub-usd.png" alt="" class="currency-rates__image">
+                            <p class="currency-rates__text">105.38</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/uah-try.png" alt="uah-try" class="currency-rates__image">
+                            <p class="currency-rates__text">0.87</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/eur-usdt.png" alt="eur-usdt" class="currency-rates__image">
+                            <p class="currency-rates__text">1.0225</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <p class="currency-rates__vip-text">Смотрите VIP-курсы при сумме обмена от 20,000 USDT/USD/EUR в Вашем городе</p>
+                
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="currency-rates__link">
+                    <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/></svg>
+        
+                    Telegram-канал
+                </a>
+            </section>
+    
+            <section class="offices">
+                <h2 class="offices__title">Сеть офисов в Турции:</h2>
+                <p class="offices__locations">Стамбул, Анталья, Аланья, Мармарис, Мерсин</p>
+            
+                <div class="offices__description">
+                    Работаем в ключевых городах Турции, предлагая удобный доступ к услугам.
+                </div>
+            
+                <div class="offices__links">
+                    <a href="https://t.me/+4aRxW1GKn1czOTYy" class="offices__link offices__link--telegram">
+                        <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
+                        </svg>
+                        Telegram-канал с курсами
+                    </a>
+            
+                    <a href="https://t.me/+4aRxW1GKn1czOTYy" class="offices__link offices__link--address">Адреса офисов</a>
+                </div>
+            
+                <div class="offices__image-wrapper">
+                    <img src="./assets/images/offices-image.png" alt="office-image" class="offices__image">
+                </div>
+            </section>
+    
+            <section class="reviews">
+                <h2 class="reviews__title">Что о нас говорят клиенты?</h2>
+                <p class="reviews__subtitle">Только реальные отзывы</p>
+            
+                <p class="reviews__description">
+                    Читайте, изучайте, сравнивайте — их опыт поможет Вам убедиться, что наш сервис действительно работает быстро, честно и выгодно. 
+                    Отзывы — лучший показатель качества нашей работы!
+                </p>
+            
+                <div class="reviews__videos">
+                    <div class="slider-wrapper">
+                        <!-- Swiper для видео -->
+                        <div class="swiper mySwiperVideos">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-one.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+                                
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-two.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-three.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-four.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-five.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-six.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-seven.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-eight.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-nine.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-ten.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-eleven.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-twelve.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="buttons-container">
+                            <div class="custom-swiper-pagination-video custom-swiper-pagination"></div>
+                            <div class="swiper-buttons">
+                                <div class="custom-prev-video">←</div>
+                                <div class="custom-next-video">→</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <p class="reviews__telegram-title">Отзывы из нашего канала в Telegram</p>
+            
+                <div class="reviews__images">
+                    <div class="slider-wrapper">
+                        <!-- Swiper для изображений -->
+                        <div class="swiper mySwiperImages">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/36.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+                                
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/35.jpg"><img src="./assets/tg-reviews/35.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/34.jpg"><img src="./assets/tg-reviews/34.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/33.jpg"><img src="./assets/tg-reviews/33.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/32.jpg"><img src="./assets/tg-reviews/32.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/31.jpg"><img src="./assets/tg-reviews/31.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/30.jpg"><img src="./assets/tg-reviews/30.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/29.jpg"><img src="./assets/tg-reviews/29.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/28.jpg"><img src="./assets/tg-reviews/28.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/27.jpg"><img src="./assets/tg-reviews/27.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/26.jpg"><img src="./assets/tg-reviews/26.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/25.jpg"><img src="./assets/tg-reviews/25.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/24.jpg"><img src="./assets/tg-reviews/24.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/23.jpg"><img src="./assets/tg-reviews/23.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/22.jpg"><img src="./assets/tg-reviews/22.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/21.jpg"><img src="./assets/tg-reviews/21.jpg" alt=""></a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/20.jpg"><img src="./assets/tg-reviews/20.jpg" alt=""></a>
+                                </div>
+    
+                            </div>
+                        </div>
+            
+                        <div class="buttons-container">
+                            <div class="custom-swiper-pagination-image custom-swiper-pagination"></div>
+                            <div class="swiper-buttons">
+                                <div class="custom-prev-image">←</div>
+                                <div class="custom-next-image">→</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="offices__link offices__link--telegram reviews__link">
+                    <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
+                    </svg>
+                    Смотреть все отзывы
+                </a>
+            </section>
+    
+            <section class="faq">
+                <h2 class="faq__title">FAQ</h2>
+                <p class="faq__subtitle">Самые часто задаваемые вопросы</p>
+    
+    
+                <div class="accordion-container">
+                    <div class="accordion">
+                        <div class="accordion-question">Вопрос 1</div>
+                        <div class="accordion-header">
+                            <span>Услуги обменника</span>
+                        </div>
+    
+                        <div class="accordion__link-block">
+                            <p>- Конвертация USDT на USD, EUR, TRY (наличные/безналичные).</p>
+                            <p>- Обмен RUB с карт российских банков на USD, EUR и TRY.</p>
+                            <p>- Обмен UAH с карт украинских банков на USD, EUR и TRY.</p>
+                            <p>- Денежные переводы - международные и внутренние.</p>
+                            <p>- Пополнение банковских счетов  - любые банки Турции, России, стран ЕС и по всему миру.</p>
+                            <p>- Оплата и выставление инвойсов.</p>
+                            <p>- Перестановки наличных по всему миру.</p>
+                            <p>- Оплата за покупку недвижимости, яхт, или авто с аукционов - без ограничений в сумме.</p>
+                            <a href="https://t.me/CentrObmena/2" class="accordion__link-block-second-link">Подробнее</a>
+                            <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+                        </div>
+    
+                    </div>
+            </div>
+            
+                    <div class="accordion-container">
+                        <div class="accordion">
+                            <div class="accordion-question">Вопрос 2</div>
+                            <div class="accordion-header">
+                                <span>Пополнение IBAN</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content_block">
+                                    <p class="accordion-content_block-text">Переведите рубли/USDT <br>на реквизиты, <br> указанные оператором.</p>
+                                </div>
+                                <div class="accordion-content_block">
+                                    <p class="accordion-content_block-text">Сообщите свой <br> IBAN и ФИО.</p>
+                                </div>
+                                <div class="accordion-content_block">
+                                    <p class="accordion-content_block-text">Получите лиры <br> на свой счет.</p>
+                                </div>
+                            </div>
+    
+                            <div class="accordion__link-block">
+                                <h3 class="accordion__link-block-title">Min сумма обмена - 15,000 лир.</h3>
+                                <a href="https://t.me/CentrObmena/2" class="accordion__link-block-second-link">Подробнее</a>
+                                <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+                            </div>
+    
+                        </div>
+                </div>
+
+                <div class="accordion-container">
+                    <div class="accordion">
+                        <div class="accordion-question">Вопрос 3</div>
+                        <div class="accordion-header">
+                            <span>Курьерская доставка </span>
+                        </div>
+    
+                        <div class="accordion__link-block">
+                            <p>- Мы предлагаем курьерскую доставку наличных по всем крупным городам Турции! При обмене от 1000 долларов (или эквивалентной суммы) наши курьеры доставят наличные прямо к вам совершенно <span class="bold">БЕСПЛАТНО</span>. Более 24 курьеров по всей стране обеспечат доставку всего от 30 минут.</p>
+                            <p>- Удобство, скорость и надежность — все для вашего комфорта!</p>
+                            <p>*Для сумм до 1000 долларов в любом эквиваленте стоимость курьерской доставки 150 TRY</p>
+                            <a href="https://t.me/CentrObmena/523" class="accordion__link-block-second-link">Подробнее</a>
+                            <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+                        </div>
+    
+                    </div>
+            </div>
+
+            <div class="accordion-container">
+                <div class="accordion">
+                    <div class="accordion-question">Вопрос 4</div>
+                    <div class="accordion-header">
+                        <span>Обмен валют в офисе</span>
+                    </div>
+
+                    <div class="accordion__link-block">
+                        <p>Наши офисы - на самых удобных локациях в центре и других районах Антальи, Аланьи, Стамбула, Мерсина, Бодрума и Мармариса чтобы Вы могли легко и быстро воспользоваться нашими услугами. </p>
+
+                        <p>Для быстрого обмена валют:</p>
+                        <ul class="accordion__link-block-ul">
+                            <li>- отправьте заявку нашему оператору;</li>
+                            <li>- получите информацию по актуальному курсу и подтвердите сделку;</li>
+                            <li>- в указанное оператором время посетите наш офис;</li>
+                            <li>- предъявите кассиру только номер заявки и мгновенно получите наличные.</li>
+                        </ul>
+
+                        <p>Мы предлагаем наличные в евро, долларах и турецких лирах. <br> Принимаем рубли через перевод с карт российских банков и USDT.</p>
+                        <a href="https://t.me/CentrObmena" class="accordion__link-block-second-link">Подробнее</a>
+                        <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+                    </div>
+
+                </div>
+        </div>
+
+        <div class="accordion-container">
+            <div class="accordion">
+                <div class="accordion-question">Вопрос 5</div>
+                <div class="accordion-header">
+                    <span>Почему у нас выгоднее?</span>
+                </div>
+
+                <div class="accordion__link-block">
+                    <p>Наши конкуренты добавляют скрытые наценки к своим обменным курсам — взимая больше без Вашего ведома.</p>
+                    <p>“Центробмена” не скрывает дополнительные комиссии в обменном курсе. Мы предлагаем вам настоящий обменный курс. Сравните наш обменный курс и комиссии с тем, что предлагают банки, другие обменники, и посмотрите на разницу сами.</p>
+
+                    <a href="https://t.me/CentrObmena" class="accordion__link-block-second-link">Подробнее</a>
+                    <p class="accordion__link-block-paragraph">Хотите лично убедиться, что наши курсы самые выгодные? Пишите оператору в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+                </div>
+
+            </div>
+    </div>
+
+    <div class="accordion-container">
+        <div class="accordion">
+            <div class="accordion-question">Вопрос 6</div>
+            <div class="accordion-header">
+                <span>Как мы работаем?</span>
+            </div>
+
+            <div class="accordion__link-block">
+                <p>Официальное разрешение на валютные операции Центробанка Турции <a href="https://mersis.ticaret.gov.tr/">No. 0790002701491459</a>, разрешение <a href="https://gib.gov.tr/en">налогового управления</a> на операции с денежными переводами. </p>
+                <p><span class="bold">- Онлайн обмены и доставка курьером:</span><br>
+                    С понедельника по воскресенье 10.00 до 22.00</p>
+                <p> <span class="bold">- Обмен в офисах:</span> <br>
+                    С понедельника по субботу с 10.00 до 18.00 <br>
+                    Воскресенье - выходной (только онлайн обмены)</p>
+
+                <a href="https://t.me/CentrObmena" class="accordion__link-block-second-link">Подробнее</a>
+                <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+            </div>
+
+        </div>
+        <div class="accordion-container">
+            <div class="accordion">
+                <div class="accordion-question">Вопрос 7</div>
+                <div class="accordion-header">
+                    <span>Где посмотреть адрес офиса?</span>
+                </div>
+
+                <div class="accordion__link-block">
+                    <p>Наши офисы работают во всех крупных городах Турции: Стамбул, Анталья, Аланья, Мерсин, Бодрум и Мармарис. После создания заявки на обмен наш оператор сообщит Вам ближайший адрес офиса, где Вы сможете обменять валюту или выполнить другие финансовые операции.</p>
+
+                    <a href="https://t.me/CentrObmena/645" class="accordion__link-block-second-link">Подробнее</a>
+                    <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+                </div>
+
+            </div>
+    </div>
+
+    <div class="accordion-container">
+        <div class="accordion">
+            <div class="accordion-question">Вопрос 8</div>
+            <div class="accordion-header">
+                <span>Как я могу с вами заработать?</span>
+            </div>
+
+            <div class="accordion__link-block">
+                <p>У нас есть выгодная партнерская программа, которая позволяет зарабатывать на привлечении новых клиентов. Тысячи наших постоянных клиентов уже получают стабильный доход, помогая нам в обмене валюты и других финансовых операциях. Наша партнерская программа - это максимально простые и понятные условия, а также дополнительные бонусы для новых партнеров.</p>
+
+                <p>Все подробности и условия партнерской программы можно найти в нашем <a href="https://t.me/CentrObmena">Telegram-канале</a>. Если у вас есть вопросы по обмену или партнерской программе, Вы можете написать нашему оператору в <a href="https://t.me/CentrObmena">Telegram-канале</a>.</p>
+                <a href="https://t.me/CentrObmena/5" class="accordion__link-block-second-link">Подробнее</a>
+                <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="https://t.me/CentrObmena" class="accordion__link">Telegram-канале</a>.</a></p>
+            </div>
+
+        </div>
+</div>
+
+<div class="accordion-container">
+    <div class="accordion">
+        <div class="accordion-question">Вопрос 9</div>
+        <div class="accordion-header">
+            <span>Как с вами связаться?</span>
+        </div>
+
+        <div class="accordion__link-block">
+            <p>Для связи с нами используйте только официальные каналы:</p>
+
+            <p> <span class="bold">Telegram:</span> <a href="https://t.me/CentrObmena_Admin">@CentrObmena_Admin</a> 
+                <br>
+                <span class="bold">WhatsApp:</span> <a href="https://wa.me/79916748251">+7 991 674 8251</a>
+            </p>
+            <p>Чтобы получить полную информацию о способах связи и актуальных новостях, посетите наш <a href="https://t.me/CentrObmena">Телеграм-канал</a>. Там вы найдете все необходимые контакты, а также сможете задать вопросы и получить ответы от нашей команды.</p>
+
+            <a href="https://t.me/CentrObmena" class="accordion__link-block-second-link">Подробнее</a>
+            <p class="accordion__link-block-paragraph">Если у Вас есть дополнительные вопросы или нужны уточнения, не стесняйтесь обращаться к нашему оператору  в <a href="https://t.me/CentrObmena">Telegram-канале</a> — он всегда готов помочь и предоставить необходимую информацию.</p>
+        </div>
+
+    </div>
+</div>
+</div>
+            </section>
+            
+            <section class="application">
+    
+                <div class="application__container">
+                    <h2 class="application__title">Мы ждем ваши заявки</h2>
+                
+                    <div class="application__links">
+                        <a href="https://t.me/+4aRxW1GKn1czOTYy" class="application__link application__link--telegram">
+                            <svg class="application__icon" width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
+                            </svg>
+                            Telegram
+                        </a>
+                
+                        <a href="https://wa.me/79916748251" class="application__link application__link--whatsapp">
+                            <svg class="application__icon" width="31" height="31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.7803 5.1771C23.0613 2.455 19.4454.9552 15.5931.9536c-7.9379 0-14.3982 6.4601-14.4014 14.4002-.001 2.5382.662 5.0158 1.9223 7.1998l-2.043 7.4625 7.6343-2.0026c2.1036 1.1474 4.4719 1.7521 6.882 1.7529h.006c7.937 0 14.398-6.4607 14.4011-14.4011.0016-3.8481-1.495-7.4662-4.2141-10.1882ZM15.5931 27.3343h-.0049c-2.1478-.0009-4.2542-.5781-6.0923-1.6685l-.4369-.2595-4.5303 1.1884 1.2092-4.417-.2847-.4528c-1.1982-1.9059-1.831-4.1086-1.83-6.3702C3.6259 8.7551 8.9956 3.3859 15.598 3.3859c3.1972.001 6.2026 1.2477 8.4624 3.5102 2.2599 2.2626 3.5037 5.2699 3.5027 8.4683-.0029 6.6001-5.3723 11.9699-11.9699 11.9699Zm6.5657-8.9648c-.3597-.1802-2.129-1.0505-2.4589-1.1708-.3296-.12-.5697-.1798-.8094.1803-.24.3601-.9295 1.1707-1.1395 1.4107-.21.2402-.4197.2703-.7796.0901-.3599-.18-1.5193-.5602-2.8938-1.7861-1.0697-.9541-1.7918-2.1325-2.0018-2.4926-.2097-.3604-.0018-.5364.1579-.7343.3895-.4838.7796-.9909.8995-1.2309.1201-.2402.0599-.4504-.0302-.6304-.0897-.1801-.8094-1.9512-1.1092-2.672-.2923-.7013-.5887-.6066-.8097-.6176-.2097-.0104-.4497-.0126-.6897-.0126-.2398 0-.6297.09-.9596.4504-.3298.3603-1.2593 1.2307-1.2593 3.0019 0 1.7711 1.2894 3.4822 1.4693 3.7223.1799.2402 2.5375 3.8748 6.147 5.4333.8586.3711 1.5287.5923 2.0515.7581.8621.2739 1.6463.2352 2.2664.1427.6914-.1035 2.1288-.8706 2.4289-1.7111.2998-.8406.2998-1.561.2097-1.7112-.0898-.1501-.3298-.24-.6895-.4202Z" fill="#000"/>
+                            </svg>
+                            Whatsapp
+                        </a>
+                    </div>
+                
+                    <p class="application__text">Напишите нам прямо сейчас, и мы предложим вам лучший курс обмена в Вашем городе!</p>
+                </div>
+            </section>
+    
+        </main>
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer__container">
+            <p class="footer__copyright">Copyright © 2025 «CentrObmena Corp.» Müeyyetzade, Necatibey Cd. No.51/A, 34425 Beyoğlu/İstanbul <a href="tel:+7 991 674 8251" class="footer__tel">+7 991 674 8251</a></p>
+
+            <p class="footer__number">Авторизован управлением по финансовому регулированию и контролю Турции для ведения операций с наличными и цифровыми активами.
+                Номер регистрации <span style="display: inline-block;"> <a href="https://mersis.ticaret.gov.tr/" class="footer__span--yellow">No. 0790002708494492</a>.</span></p>
+        </div>
+
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="./scripts/slider.js"></script>
+<script src="./scripts/currency.js"></script>
+<script src="./scripts/last-exchange-accordion.js"></script>
+<script src="./scripts/accordion.js"></script>
+<script src="./scripts/currancy-rates.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    Fancybox.bind("[data-fancybox='gallery']", {});
+});
+</script>
+
+<script>
+    function validateInput(event) {
+        const char = String.fromCharCode(event.charCode);
+        const input = event.target;
+        
+        if (!/[0-9.]/.test(char)) {
+            return false;
+        }
+        
+        if (char === '.' && input.value.includes('.')) {
+            return false;
+        }
+        
+        return true;
+    }
+    </script>
+    
+
+
+</body>
+</html>
