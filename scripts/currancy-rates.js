@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     async function fetchRates() {
         try {
-            const response = await fetch("http://45.12.143.146:5001/api/v1/rates/"); // Запрос к Flask API
+            const response = await fetch("https://tri-prep-shadow-tomatoes.trycloudflare.com/api/v1/rates/"); // Запрос к Flask API
 
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status}`); // Обработка ошибок HTTP

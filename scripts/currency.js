@@ -319,7 +319,7 @@ document.querySelectorAll('.currency-rates__button').forEach(button => {
 
 
 async function fetchExchangeRates(fromCurrency, toCurrency, amount) {
-    const apiUrl = `http://45.12.143.146:5001/api/v1/rates_tuple/?fromCurrency=${fromCurrency}&toCurrency=${toCurrency}&amount=${amount}`;
+    const apiUrl = `https://tri-prep-shadow-tomatoes.trycloudflare.com/api/v1/rates/${fromCurrency}&toCurrency=${toCurrency}&amount=${amount}`;
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {

@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function fetchExchangeData() {
         try {
-            const response = await fetch('http://45.12.143.146:5001/api/v1/centrobm/reviews/');
+            const response = await fetch('https://tri-prep-shadow-tomatoes.trycloudflare.com/api/v1/rates/');
             if (!response.ok) {
                 throw new Error('Сеть ответила с ошибкой: ' + response.status);
             }
